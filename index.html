@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BudgetAppOne-2ndAttempt</title>
+
+    <!--Google Fonts-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    />
+
+    <!--Font Awesome Icons-->
+    <link
+      rel="stylesheet"
+      href="https://fontawesome.com/icons/pen?f=classic&s=solid"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fontawesome.com/icons/trash-can?f=classic&s=solid"
+    />
+
+    <!--Style Sheet-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <!--.
+.
+.
+.
+-->
+
+  <body>
+    <main>
+      <div class="budget-expenses-outputdisplay">
+        <div class="budget-expenses">
+          <!--.
+.
+.
+.            
+          -->
+          <!--Budget Information Box-->
+          <div class="budget-info">
+            <p class="headings">Budget</p>
+            <p class="hide-errors" id="budget-error">
+              Value cannot be empty or negative
+            </p>
+            <input
+              type="number"
+              id="budget-input-bar"
+              placeholder="Enter Total Budget"
+            />
+            <button id="budget-button">Set Bedget</button>
+          </div>
+          <!--.
+.
+.
+.
+-->
+          <!--Expenses Information Box-->
+          <div class="expenses-info">
+            <p class="headings">Expenses</p>
+            <p class="hide errors" id="product-error">Value cannot be empty</p>
+            <input
+              id="product-input-bar"
+              type="text"
+              placeholder="Enter Product Name"
+            />
+            <p class="hide errors" id="product-cost-error">
+              Value cannot be empty or negative
+            </p>
+            <input
+              id="expenses-input-bar"
+              type="number"
+              placeholder="Enter Expense Amount"
+            />
+            <button id="expenses-button">Update Expenses</button>
+          </div>
+        </div>
+      </div>
+      <!--.
+.
+.
+.
+-->
+      <!--Output Display-->
+      <div class="output-display">
+        <div class="inner-display">
+          <p class="subheadings">Budget Amount</p>
+          <span id="budget-amount">0</span>
+        </div>
+        <div class="inner-display">
+          <p class="subheadings">Expenses</p>
+          <span id="expenses-amount">0</span>
+        </div>
+        <div class="inner-display">
+          <p class="subheadings">Balance</p>
+          <span id="balance-amount">0</span>
+        </div>
+      </div>
+      <!--.
+.    
+.
+.
+-->
+      <!--Expense List-->
+      <div class="expense-list-section">
+        <p class="headings">Expense List</p>
+        <div id="list-items"></div>
+      </div>
+    </main>
+  </body>
+
+  <!--JavaScript Code-->
+  <link rel="javascript" href="script.js" />
+</html>
