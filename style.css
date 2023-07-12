@@ -22,6 +22,15 @@ main {
   grid-template-columns: 1fr 1fr;
   gap: 3em;
 }
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .budget-expenses p {
   font-weight: 500;
   margin-bottom: 0.6em;
@@ -60,9 +69,6 @@ main p {
   box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
   margin: 2em 0;
   padding: 1.2em;
-  justify-content: space-between;
-  display: flex;
-  align-items: center;
 }
 .output-display p {
   font-weight: 500;

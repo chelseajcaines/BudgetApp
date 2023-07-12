@@ -42,7 +42,7 @@
           <!--Budget Information Box-->
           <div class="budget-info">
             <p>Budget</p>
-            <p class="hide-errors" id="budget-error">
+            <p class="hide-errors" id="budget-error-message">
               Value cannot be empty or negative
             </p>
             <input
@@ -50,7 +50,7 @@
               id="budget-input-bar"
               placeholder="Enter Total Budget"
             />
-            <button id="budget-button">Set Bedget</button>
+            <button id="budget-button">Set Budget</button>
           </div>
           <!--.
 .
@@ -60,13 +60,15 @@
           <!--Expenses Information Box-->
           <div class="expenses-info">
             <p>Expenses</p>
-            <p class="hide errors" id="product-error">Value cannot be empty</p>
+            <p class="hide errors" id="product-error-message">
+              Value cannot be empty
+            </p>
             <input
               type="text"
               id="product-input-bar"
               placeholder="Enter Product Name"
             />
-            <p class="hide errors" id="product-cost-error">
+            <p class="hide errors" id="product-cost-error-message">
               Value cannot be empty or negative
             </p>
             <input
@@ -84,7 +86,7 @@
 .
 -->
         <!--Output Display-->
-        <div class="output-display">
+        <div class="output-display flex-space">
           <div class="inner-display">
             <p>Total</p>
             <span id="budget-amount">0</span>
@@ -106,7 +108,7 @@
 .
 -->
       <!--Expense List-->
-      <div class="expense-list-section">
+      <div id="expense-list-section">
         <p>Expense List</p>
         <div id="list-items"></div>
       </div>
@@ -114,5 +116,5 @@
   </body>
 
   <!--JavaScript Code-->
-  <link rel="javascript" href="script.js" />
+  <script src="script.js"></script>
 </html>
