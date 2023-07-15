@@ -82,7 +82,7 @@ main p {
   font-weight: 400;
   color: #e5e5e5;
 }
-button {
+#budget-button {
   font-size: 1em;
   margin-top: 0.8em;
   background-color: #587ef4;
@@ -93,7 +93,21 @@ button {
   border-radius: 0.3em;
   cursor: pointer;
 }
-button:hover {
+#expenses-button {
+  font-size: 1em;
+  margin-top: 0.8em;
+  background-color: #587ef4;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  padding: 0.6em 1.2em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+#budget-button:hover {
+  background-color: #3757b8;
+}
+#expenses-button:hover {
   background-color: #3757b8;
 }
 .expense-list-section {
@@ -139,6 +153,11 @@ button:hover {
 .error {
   color: #ff465a;
 }
+#budget-error-message,
+#product-error-message,
+#product-cost-error-message {
+  font-size: 12px;
+}
 /*below is a class that is created in javascript*/
 .edit {
   margin-left: auto;
@@ -151,6 +170,18 @@ button:hover {
   margin-right: 1.5em;
   border: none;
   color: #587ef4;
+}
+.edit:hover {
+  color: #b4c3ee;
+}
+.delete:hover {
+  color: #b4c3ee;
+}
+#expense-list-section {
+  background-color: #ffffff;
+  padding: 1.8em 1.2em;
+  box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.06);
+  border-radius: 0.6em;
 }
 @media screen and (max-width: 600px) {
   main {

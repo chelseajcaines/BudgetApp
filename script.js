@@ -20,6 +20,7 @@ budgetButton.addEventListener("click", () => {
   //empty or negative input
   if (tempAmount === "" || tempAmount < 0) {
     budgetErrorMessage.classList.remove("hide");
+    budgetInputBar.value = "";
   } else {
     budgetErrorMessage.classList.add("hide");
     //Set Budget
@@ -31,6 +32,17 @@ budgetButton.addEventListener("click", () => {
   }
 });
 
+//removing error message when clicking input bar
+budgetInputBar.addEventListener("click", () => {
+  budgetErrorMessage.classList.add("hide");
+});
+productInputBar.addEventListener("click", () => {
+  productErrorMessage.classList.add("hide");
+});
+expensesInputBar.addEventListener("click", () => {
+  productCostErrorMessage.classList.add("hide");
+  productErrorMessage.classList.add("hide");
+});
 //Function To Disable Edit and Delete Button
 const disableButtons = (bool) => {
   let editButtons = document.getElementsByClassName("edit");
@@ -57,8 +69,7 @@ const modifyElement = (element, edit = false) => {
 };
 
 //Function To Create List
-const listCreator = (expenseName, expenseValue) =>
-{
+const listCreator = (expenseName, expenseValue) => {
   // Create new parent container for our edit and delete buttons
   const sublistContent = document.createElement("div");
   sublistContent.classList.add("sublist-content", "flex-space");
@@ -77,7 +88,7 @@ const listCreator = (expenseName, expenseValue) =>
   });
 
   // Create the Edit Button Icon and append properties
-  const editButtonIcon = document.createElement('i');
+  const editButtonIcon = document.createElement("i");
   editButtonIcon.classList.add("fa-solid", "fa-pen");
 
   // Attach the EditButtonIcon into the EditButton Node
@@ -92,8 +103,9 @@ const listCreator = (expenseName, expenseValue) =>
   });
 
   // Create the Delete Button icon and append properties
-  const deleteButtonIcon = document.createElement('i');
+  const deleteButtonIcon = document.createElement("i");
   deleteButtonIcon.classList.add("fa-solid", "fa-trash-can");
+  deleteButtonIcon.style.padding = "1px";
 
   // Attach the deleteButtonIcon into the deleteButton Node
   deleteButton.appendChild(deleteButtonIcon);
@@ -106,8 +118,14 @@ const listCreator = (expenseName, expenseValue) =>
 //Function To Add Expenses
 expensesButton.addEventListener("click", () => {
   //empty checks
-  if (!expensesInputBar.value || !productInputBar.value) {
+  if (!productInputBar.value) {
     productErrorMessage.classList.remove("hide");
+    productInputBar.value = "";
+    return false;
+  }
+  if (!expensesInputBar.value) {
+    productCostErrorMessage.classList.remove("hide");
+    expensesInputBar.value = "";
     return false;
   }
 
@@ -124,8 +142,6 @@ expensesButton.addEventListener("click", () => {
   //Create list
   listCreator(productInputBar.value, expensesInputBar.value);
   //Empty inputs
-  productInputBar.value = '';
-  expensesInputBar.value = '';
-
-  productErrorMessage.classList.add("hide")
+  productInputBar.value = "";
+  expensesInputBar.value = "";
 });
