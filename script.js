@@ -57,23 +57,47 @@ const modifyElement = (element, edit = false) => {
 };
 
 //Function To Create List
-const listCreator = (expenseName, expenseValue) => {
-  let sublistContent = document.createElement("div");
+const listCreator = (expenseName, expenseValue) =>
+{
+  // Create new parent container for our edit and delete buttons
+  const sublistContent = document.createElement("div");
   sublistContent.classList.add("sublist-content", "flex-space");
+  // Attach the new parent into the existing DOM Node
   expensesListSection.appendChild(sublistContent);
+
+  // Generate p tags for the name and cost of the expense row
   sublistContent.innerHTML = `<p class="product">${expenseName}</p><p class="amount">${expenseValue}</p>`;
-  let editButton = document.createElement("button");
-  editButton.classList.add("fa-solid", "fa-pen", "edit");
+
+  // Create the Edit Button and append properties
+  const editButton = document.createElement("button");
+  editButton.classList.add("edit");
   editButton.style.fontSize = "1.2em";
   editButton.addEventListener("click", () => {
     modifyElement(editButton, true);
   });
-  let deleteButton = document.createElement("button");
-  deleteButton.classList.add("fa-solid", "fa-trash-can", "delete");
+
+  // Create the Edit Button Icon and append properties
+  const editButtonIcon = document.createElement('i');
+  editButtonIcon.classList.add("fa-solid", "fa-pen");
+
+  // Attach the EditButtonIcon into the EditButton Node
+  editButton.appendChild(editButtonIcon);
+
+  // Create the Delete Button and append properties
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete");
   deleteButton.style.fontSize = "1.2em";
   deleteButton.addEventListener("click", () => {
     modifyElement(deleteButton);
   });
+
+  // Create the Delete Button icon and append properties
+  const deleteButtonIcon = document.createElement('i');
+  deleteButtonIcon.classList.add("fa-solid", "fa-trash-can");
+
+  // Attach the deleteButtonIcon into the deleteButton Node
+  deleteButton.appendChild(deleteButtonIcon);
+
   sublistContent.appendChild(editButton);
   sublistContent.appendChild(deleteButton);
   document.getElementById("list-items").appendChild(sublistContent);
@@ -86,6 +110,7 @@ expensesButton.addEventListener("click", () => {
     productErrorMessage.classList.remove("hide");
     return false;
   }
+
   //Enable buttons
   disableButtons(false);
   //Expense
@@ -99,6 +124,8 @@ expensesButton.addEventListener("click", () => {
   //Create list
   listCreator(productInputBar.value, expensesInputBar.value);
   //Empty inputs
-  productInputBar.value = "";
-  expensesInputBar.value = "";
+  productInputBar.value = '';
+  expensesInputBar.value = '';
+
+  productErrorMessage.classList.add("hide")
 });

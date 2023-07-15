@@ -12,37 +12,25 @@
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
     />
 
-    <!--Font Awesome Icons-->
+    <!-- Import Font Awesome Library -->
     <link
       rel="stylesheet"
-      href="https://fontawesome.com/icons/pen?f=classic&s=solid"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fontawesome.com/icons/trash-can?f=classic&s=solid"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
 
     <!--Style Sheet-->
     <link rel="stylesheet" href="style.css" />
   </head>
-  <!--.
-.
-.
-.
--->
+
   <body>
     <main>
       <div class="budget-expenses-outputdisplay">
         <div class="budget-expenses">
-          <!--.
-.
-.
-.            
-          -->
+
           <!--Budget Information Box-->
           <div class="budget-info">
             <p>Budget</p>
-            <p class="hide-errors" id="budget-error-message">
+            <p class="hide error" id="budget-error-message">
               Value cannot be empty or negative
             </p>
             <input
@@ -52,15 +40,11 @@
             />
             <button id="budget-button">Set Budget</button>
           </div>
-          <!--.
-.
-.
-.
--->
+
           <!--Expenses Information Box-->
           <div class="expenses-info">
             <p>Expenses</p>
-            <p class="hide errors" id="product-error-message">
+            <p class="hide error" id="product-error-message">
               Value cannot be empty
             </p>
             <input
@@ -68,7 +52,7 @@
               id="product-input-bar"
               placeholder="Enter Product Name"
             />
-            <p class="hide errors" id="product-cost-error-message">
+            <p class="hide error" id="product-cost-error-message">
               Value cannot be empty or negative
             </p>
             <input
@@ -80,11 +64,6 @@
           </div>
         </div>
 
-        <!--.
-.
-.
-.
--->
         <!--Output Display-->
         <div class="output-display flex-space">
           <div class="inner-display">
