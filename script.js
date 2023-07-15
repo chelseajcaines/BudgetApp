@@ -15,7 +15,7 @@ const expensesListSection = document.getElementById("expense-list-section");
 let tempAmount = 0;
 
 //Set Budget Part
-budgetButton.addEventListener("click", () => {
+const setBudgetTotal = () => {
   tempAmount = budgetInputBar.value;
   //empty or negative input
   if (tempAmount === "" || tempAmount < 0) {
@@ -29,6 +29,17 @@ budgetButton.addEventListener("click", () => {
     balanceAmount.innerText = tempAmount - expensesAmount.innerText;
     //Clear Input Box
     budgetInputBar.value = "";
+  }
+};
+
+//clicking the budget button
+budgetButton.addEventListener("click", () => setBudgetTotal());
+
+//hitting enter after typing value in budget input bar
+budgetInputBar.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    budgetButton.click();
   }
 });
 
@@ -105,7 +116,6 @@ const listCreator = (expenseName, expenseValue) => {
   // Create the Delete Button icon and append properties
   const deleteButtonIcon = document.createElement("i");
   deleteButtonIcon.classList.add("fa-solid", "fa-trash-can");
-  deleteButtonIcon.style.padding = "1px";
 
   // Attach the deleteButtonIcon into the deleteButton Node
   deleteButton.appendChild(deleteButtonIcon);
@@ -116,7 +126,7 @@ const listCreator = (expenseName, expenseValue) => {
 };
 
 //Function To Add Expenses
-expensesButton.addEventListener("click", () => {
+const setExpenses = () => {
   //empty checks
   if (!productInputBar.value) {
     productErrorMessage.classList.remove("hide");
@@ -144,4 +154,22 @@ expensesButton.addEventListener("click", () => {
   //Empty inputs
   productInputBar.value = "";
   expensesInputBar.value = "";
+};
+
+//clicking the expenses button
+expensesButton.addEventListener("click", () => setExpenses());
+
+//hitting enter after typing value in product input bar
+productInputBar.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    expensesButton.click();
+  }
+});
+//hitting enter after typing value in expenses input bar
+expensesInputBar.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    expensesButton.click();
+  }
 });
