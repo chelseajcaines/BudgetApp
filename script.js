@@ -12,6 +12,7 @@ const budgetAmount = document.getElementById("budget-amount")
 const expensesAmount = document.getElementById("expenses-amount")
 const balanceAmount = document.getElementById("balance-amount")
 const expensesListSection = document.getElementById("expense-list-section")
+
 let tempAmount = 0
 
 //Set Budget Part
@@ -94,6 +95,8 @@ const listCreator = (expenseName, expenseValue) => {
     const editButton = document.createElement("button")
     editButton.classList.add("edit")
     editButton.style.fontSize = "1.2em"
+    // adding a tooltip to the edit button icon
+    editButton.title = "Edit"
     editButton.addEventListener("click", () => {
         modifyElement(editButton, true)
     })
@@ -109,6 +112,8 @@ const listCreator = (expenseName, expenseValue) => {
     const deleteButton = document.createElement("button")
     deleteButton.classList.add("delete")
     deleteButton.style.fontSize = "1.2em"
+    // adding a tooltip to the delete icon button
+    deleteButton.title = "Delete"
     deleteButton.addEventListener("click", () => {
         modifyElement(deleteButton)
     })
@@ -119,6 +124,14 @@ const listCreator = (expenseName, expenseValue) => {
 
     // Attach the deleteButtonIcon into the deleteButton Node
     deleteButton.appendChild(deleteButtonIcon)
+
+    // create tooltip for delete button icon
+    //const tooltipDelete = document.createElement("span")
+    //tooltipDelete.textContent = "delete"
+    // tooltipDelete.classList.add("delete-tooltip")
+
+    // attach tootip to edit button icon
+    //deleteButtonIcon.appendChild(tooltipDelete)
 
     sublistContent.appendChild(editButton)
     sublistContent.appendChild(deleteButton)
