@@ -183,16 +183,20 @@ expensesInputBar.addEventListener("keypress", function (event) {
         expensesButton.click()
     }
 })
+
 //clicking the expenses button
-expensesButton.addEventListener("click", () => setExpenses(), store())
+expensesButton.addEventListener("click", () => {
+    setExpenses()
+    store()
+})
 
 // Database persistance - local storage
 
 // Function to store items in local storage
 function store() {
-    var budget = budgetInputBar.value
-    var product = productInputBar.value
-    var expense = expensesInputBar.value
+    const budget = budgetInputBar.value
+    const product = productInputBar.value
+    const expense = expensesInputBar.value
 
     const allInputData = {
         budget: budget,
@@ -202,5 +206,18 @@ function store() {
 
     // Converting object to string
     window.localStorage.setItem("allInputData", JSON.stringify(allInputData))
-    console.log(allInputData)
 }
+
+// Clark's Mock Data Structure (for use with LocalStorage)
+// at least 2 discrete LocalStprage Variables
+// 'total_budget': budgetBarInput // Running Total after expenses (updated every expense)
+// 'expense_list': [
+// {
+//     expense_name: ProductName
+//     expense_value: Expense Amount
+// },
+// {
+//     expense_name: ProductName
+//     expense_value: Expense Amount
+// }
+// ]
